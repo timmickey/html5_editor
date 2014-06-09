@@ -38,6 +38,10 @@
     					['strike', 'Abc', 'Strikethrough'],
     					['sup', 'X<sup>2</sup>', 'Superscript'],
     					['sub', 'X<sub>2</sub>', 'Subscript'],
+    					['left', 'L', 'Align Left'],
+    					['center', 'C', 'Align Center'],
+    					['full', 'F', 'Align Justify'],
+    					['right', 'R', 'Align Right'],
     					['remove', '⌫', 'Remove Formating']
     				]
     			],
@@ -93,6 +97,18 @@
 								break;
 							case 'sub':
 								methods.subscript.apply(this);
+								break;
+							case 'left':
+								methods.justifyLeft.apply(this);
+								break;
+							case 'center':
+								methods.justifyCenter.apply(this);
+								break;
+							case 'full':
+								methods.justifyFull.apply(this);
+								break;
+							case 'right':
+								methods.justifyRight.apply(this);
 								break;
 							case 'bold':
 								methods.bold.apply(this);
@@ -159,6 +175,18 @@
 		},
 		subscript: function() {
 			document.execCommand("subscript", false, null);
+		},
+		justifyLeft: function() {
+			document.execCommand("justifyLeft", false, null);
+		},
+		justifyCenter: function() {
+			document.execCommand("justifyCenter", false, null);
+		},
+		justifyFull: function() {
+			document.execCommand("justifyFull", false, null);
+		},
+		justifyRight: function() {
+			document.execCommand("justifyRight", false, null);
 		},
 		createLink: function() {
 			var urlPrompt = prompt("Enter the link URL:", "http://");
